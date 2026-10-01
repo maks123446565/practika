@@ -1,1 +1,17 @@
 
+ocenki = list()
+ocenka = input("введите оценку (0 - закончить)")
+while ocenka != "0":
+     ocenki.append(ocenka)
+     ocenka = input("введите оценку (0 - закончить)")
+print(ocenki)
+scetchik = 0
+for i in range(len(ocenki) - 1):
+    if ocenki[i] <= [i + 1]:
+         scetchik  = chetchik + 1
+if scetchik == len(ocenki) - 1:
+    print("стабильная успеваемость")
+else:
+    print("ава")
+    
+    
