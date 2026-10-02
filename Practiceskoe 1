@@ -1,0 +1,78 @@
+#задание 1
+games = list()
+game = input("введите игру ''0-завершить''")
+while game != "0":
+    if game in games:
+        print("эта игра уже записана")
+    else:
+        games.append(game)
+        games.sort
+    game = input("введите игру ''0-завершить''")
+print(games)
+
+#задание 2
+ocenki = list()
+ocenka = input("введите оценку (0 - закончить)")
+while ocenka != "0":
+     ocenki.append(ocenka)
+     ocenka = input("введите оценку (0 - закончить)")
+print(ocenki)
+scetchik = 0
+for i in range(len(ocenki) - 1):
+    if ocenki[i] <= ocenki[i + 1]:
+         scetchik  = scetchik + 1
+if scetchik == len(ocenki) - 1:
+    print("стабильная успеваемость")
+else:
+    print("стабильной успеваемости нет")
+
+#задание 3
+students = ['Абрикосов', 'Воробьева', 'Лисицын', 'Олейник', 'Щукина']
+students.sort()
+for number in range(len(students)):
+    print(number + 1, students[number])
+new_student = input("Введите фамилию нового ученика: ")
+students.append(new_student)
+students.sort()
+for number in range(len(students)):
+    print(number + 1, students[number])
+
+#задание 4
+times = input("Введите время тестов через пробел: ")
+times = list(map(int, times.split()))
+for n in range(1, len(times)):
+    if times[n] > times[n - 1]:
+        print(n + 1, times[n])
+
+#задание 5
+numbers = input("Введите элементы через пробел: ").split()
+for number in range(0, len(numbers), 2):
+    print(numbers[number])
+
+#задание 6
+-----
+
+#задание 7
+marks = input("Введите оценки через пробел: ").split()
+for i in range(len(marks)):
+    marks[i] = int(marks[i])
+print(marks)
+amount = 0
+for mark in marks:
+    if mark == 3 or mark == 4 or mark == 5:
+        amount = amount + 1
+progress = amount / len(marks) * 100
+print(int(progress))
+
+#задание 8
+marks = input("Введите оценки через пробел: ").split()
+for n in range(len(marks)):
+    marks[n] = int(marks[n])
+amount = 0
+for mark in marks:
+    if mark == 5:
+        amount = amount + 1
+percent = amount / len(marks) * 100
+print("Получено пятёрок (%) -", int(percent))
+#задание 9
+-----
