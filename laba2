@@ -1,0 +1,86 @@
+#задание 1
+authors = {
+    'Пушкин': 'Русский поэт, драматург и прозаик.',
+    'Толстой': 'Известный русский писатель и мыслитель.',
+    'Бунин': 'Русский писатель, поэт и переводчик.'
+}
+surname = input('Введите фамилию автора: ')
+if surname in authors:
+    print('Биография:', authors[surname])
+else:
+    print('Автор не найден. Добавить?')
+    if input('Введите Да или Нет: ') == 'Да':
+        biography = input('Введите биографию автора: ')
+        authors[surname] = biography
+    else:
+        print('Ответ получен')
+
+#задание 2
+student_card = {'номер': '324', 'фамилия': 'Иванов'}
+print('Добро пожаловать!')
+print(student_card)
+choice = input('1 - Взять книгу, 2 - Вернуть книгу, 3 - Покинуть библиотеку: ')
+while choice != '3':
+    if choice == '1':
+        book = input('Введите название книги: ')
+        student_card['долг — ' + book] = book
+        print(student_card)
+    elif choice == '2':
+        book = input('Введите название книги: ')
+        del student_card['долг — ' + book]
+        print(student_card)
+    choice = input('1 - Взять книгу, 2 - Вернуть книгу, 3 - Покинуть библиотеку: ')
+print('Ждём вас:')
+print(student_card)
+
+#задание 3
+#---
+
+#задание 4
+
+def make_reader_card():
+    numbers = input('Введите номера прочитанных книг через пробел: ')
+    numbers = numbers.split()
+    card = set()
+    for number in numbers:
+        card.add(int(number))
+    return card
+def print_book(data):
+    for number in data:
+        print(number, '—', books[number])
+books = {
+    114: 'Пиковая дама. Пушкин',
+    830: 'Гарри Поттер. Роулинг',
+    508: 'Тарас Бульба. Гоголь',
+    922: 'Остров сокровищ. Стивенсон',
+    152: 'Властелин колец. Толкин',
+    252: 'Три мушкетёра. Дюма',
+    749: 'Руслан и Людмила. Пушкин',
+    240: 'Гамлет. Шекспир'
+}
+reader_1 = make_reader_card()
+reader_2 = make_reader_card()
+print('Рекомендации для первого читателя:')
+recommendations_1 = reader_2 - reader_1
+print_book(recommendations_1)
+print('Рекомендации для второго читателя:')
+recommendations_2 = reader_1 - reader_2
+print_book(recommendations_2)
+
+#задание 5
+text = input('Введите текст: ')
+words = text.split()
+count = {}
+for word in words:
+    if word in count:
+        count[word] += 1
+    else:
+        count[word] = 1
+max_word = words[0]
+for word in count:
+    if count[word] > count[max_word]:
+        max_word = word
+print(max_word)
+
+#задание 6
+#не понятно
