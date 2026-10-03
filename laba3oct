@@ -1,0 +1,57 @@
+[лаба.py](https://github.com/user-attachments/files/32989693/default.py)
+#задание 1
+class animal():
+    def __init__ (self, vid, golos):
+        self.vid = vid
+        self.golos = golos
+    def make_voise(self):
+        print(self.golos)
+vid = input('введите вид животного:')
+golos = input('введите голос животного:')
+my_animal = animal(vid, golos)
+print('животное создано', my_animal.vid)
+komanda = input('сказать команду  животному ''голос'', (да или нет)?')
+if komanda.lower() == "да":
+    print(golos)
+else:
+    print("досвидания")
+
+#задание 2
+class student:
+    def __init__ (self, name, familia, pol):
+        self.name = name
+        self.familia = familia
+        self.pol = pol
+    def academic_perfomance(self):
+        ocenki = input("введите оценки через пробел:")
+        ocenki = ocenki.split()
+        summa = 0
+        for ocenka in ocenki:
+            summa = summa + int(ocenki)
+        srednya = summa / len(ocenki)
+        if srednya >= 4.5:
+            if self.pol == "м":
+                print("отличник")
+            else:
+                print("отличница")
+        elif srednya >= 3.5:
+            if sel.pol == "м":
+                print("хорошист")
+            else:
+                print("хорошистка")
+        elif srednya >= 2.5:
+            if self.pol == "м":
+                print("троечник")
+            else:
+                print("троечница")
+        else:
+            if self.pol == "м":
+                print("неуспевающий")
+            else:
+                print("неуспевающая")
+kolichestvo = int(input("введите количество учеников:")
+studenty = []
+                  
+    
+            
+    
