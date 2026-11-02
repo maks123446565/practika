@@ -1,0 +1,29 @@
+#задание 1
+
+print("Моя первая программа напечатала ''привет, яндекс!'' :)")
+
+
+#задание 2
+
+text = ("Aууууу!")
+print(text)
+print(text)
+
+#задание 3
+
+text = input()
+print(text.upper())
+print(text.lower())
+print(text.lower())
+
+#задание 4
+
+print("1 бит - наименьшая еденица измерения информации.")
+print("1 байт = 9 бит")
+print("1 Кбайт = 1024 байт")
+kbyte = 15
+byte = kbyte * 1024
+bit = byte * 8
+print(Kbyte, "Кбайт =", byte, "байт =", bit, "бит")
+
+#задание 5
