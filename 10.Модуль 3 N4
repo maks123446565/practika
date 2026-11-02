@@ -1,0 +1,62 @@
+#задание 2
+
+print("Привет, Яндекс")
+
+#задание 3
+
+print("Привет, Яндекс!")
+print("Приятно познакомиться.")
+
+#задание 4
+
+text = ("аууууу")
+print(text)
+print(text)
+
+#задание 5
+
+slovo = input()
+if slovo == "ОК":
+    print("это правильный ответ")
+else:
+    print("пока неверно")
+
+
+#задание 6
+
+login = input()
+if 4 <= len(login) <= 10:
+    print("true")
+else:
+    print("false")
+
+
+#задание 7
+
+van = input()
+tu = input()
+if van == tu:
+    print("данные совпали")
+else:
+    print("данные различаются")
+
+
+#задание 8
+
+van = input()
+tu = input()
+fri = input()
+if  van == "На старт" and tu == "Внимание" and fri == "Марш":
+    print("Бежим")
+else:
+    print("Фальстарт")
+
+
+#задание 9
+
+pogoda = input().lower()
+rain = "дождь" in pogoda or "осадки" in pogoda
+if rain:
+    print("Возьми зонт!")
+else:
+    print("зонт не нужен")
