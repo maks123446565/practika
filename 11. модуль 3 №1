@@ -27,3 +27,22 @@ bit = byte * 8
 print(Kbyte, "Кбайт =", byte, "байт =", bit, "бит")
 
 #задание 5
+
+print(input())
+
+#задание 6
+
+text = input()
+if text == "":
+    print("Тут ничего нет")
+else:
+    rint("А тут есть")
+
+
+#задание 7
+
+text = input()
+if ("*" in text or "?" in text) and " " not in text:
+    print("Возможно это маска")
+else:
+    print("Это не маска")
