@@ -1,0 +1,122 @@
+import pygame
+import random
+
+pygame.init()
+
+win = pygame.display.set_mode((500, 500))
+pygame.display.set_caption("Fast Clicker")
+clock = pygame.time.Clock()
+
+
+class Card:
+    def __init__(self, x, y, w, h, color):
+        self.rect = pygame.Rect(x, y, w, h)
+        self.color = color
+        self.text = ""
+
+    def draw(self):
+        pygame.draw.rect(win, self.color, self.rect)
+        pygame.draw.rect(win, (0, 0, 0), self.rect, 2)
+
+        if self.text:
+            font = pygame.font.SysFont("Arial", 28)
+            surf = font.render(self.text, True, (0, 0, 0))
+            win.blit(surf, (self.rect.x + 10, self.rect.y + 35))
+
+
+cards = [Card(15 + i * 122, 290, 110, 110, (235, 235, 60))
+         for i in range(4)]
+
+active = random.randint(0, 3)
+cards[active].text = "CLICK"
+
+score = 0
+time_left = 10
+
+game_over = False
+win_game = False
+
+pygame.time.set_timer(pygame.USEREVENT, 1000)
+pygame.time.set_timer(pygame.USEREVENT + 1, 500)
+
+running = True
+
+while running:
+    win.fill((110, 185, 235))
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            running = False
+
+        if event.type == pygame.USEREVENT and not game_over and not win_game:
+            time_left -= 1
+
+        if event.type == pygame.USEREVENT + 1 and not game_over and not win_game:
+            cards[active].text = ""
+
+            old_active = active
+            while active == old_active:
+                active = random.randint(0, 3)
+
+            cards[active].text = "CLICK"
+
+        if (event.type == pygame.MOUSEBUTTONDOWN
+                and event.button == 1
+                and not game_over
+                and not win_game):
+
+            for i, card in enumerate(cards):
+                if card.rect.collidepoint(event.pos):
+
+                    if i == active:
+                        score += 1
+                        card.color = (0, 220, 0)
+                    else:
+                        score -= 1
+                        card.color = (220, 50, 50)
+
+                    pygame.time.set_timer(pygame.USEREVENT + 2, 300)
+
+                    break
+
+        if event.type == pygame.USEREVENT + 2:
+            for card in cards:
+                card.color = (235, 235, 60)
+
+            pygame.time.set_timer(pygame.USEREVENT + 2, 0)
+
+    if score >= 5:
+        win_game = True
+
+    if time_left <= 0 and score < 5:
+        game_over = True
+
+    if not game_over and not win_game:
+        for card in cards:
+            card.draw()
+
+        font = pygame.font.SysFont("Arial", 36)
+
+        txt_score = font.render("Очки: " + str(score), True, (0, 0, 0))
+        txt_time = font.render("Время: " + str(time_left), True, (0, 0, 0))
+
+        win.blit(txt_score, (20, 50))
+        win.blit(txt_time, (320, 50))
+
+    if win_game:
+        win.fill((0, 180, 0))
+        font = pygame.font.SysFont("Arial", 42)
+        txt = font.render("Вы победили!", True, (255, 255, 255))
+        win.blit(txt, (105, 220))
+
+    if game_over:
+        win.fill((200, 0, 0))
+        font = pygame.font.SysFont("Arial", 42)
+        txt = font.render("Игра закончена", True, (255, 255, 255))
+        win.blit(txt, (75, 220))
+
+    pygame.display.update()
+    clock.tick(60)
+
+pygame.quit()
